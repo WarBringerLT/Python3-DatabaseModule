@@ -73,7 +73,7 @@ class Database():
 
 	def GetInfo(self,Username, Parameter):
 		try:
-			Logger.log("Attemping to Parse/Get ({Username}) Data...")
+			Logger.log(f"Attemping to Parse/Get ({Username}) Data...")
 			f = open(Database_Accounts_Folder + Username + '.ini','r')
 			AccountData_TEMP = f.readlines()
 			f.close()
@@ -87,7 +87,7 @@ class Database():
 						Value = ""
 						for item in DATA:
 							Value += item
-						return Value
+						return Value.strip()
 		except FileNotFoundError:
 			Logger.log(f"User ({Username}) was not found!",1)
 			return False
